@@ -23,13 +23,13 @@ class RandomWalk:
 
 class Brownian(RandomWalk):
     def __init__(self, T=1, n=1000):
-        super().__init__(n, 1 / np.sqrt(n), 0.5)
+        super().__init__(T*n, 1 / np.sqrt(n), 0.5)
         self.T = T
         self.n = n
         self.dt = T / n
 
     def plot(self, style='b-'):
-        plt.plot(np.arange(self.n) * self.T / self.n, self.path, style)
+        plt.plot(np.arange(self.n) * self.dt, self.path, style)
         plt.show()
 
 
