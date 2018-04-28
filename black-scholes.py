@@ -39,6 +39,6 @@ class BlackScholes:
 if __name__ == "__main__":
     a = BlackScholes(0.178, 0.087, 0.05, 30, 100, 100)
     plt.plot(a.tsteps, a.stock, 'b-')
-    plt.plot(a.tsteps, a.call(2500), 'r-')
-    plt.plot(a.tsteps, a.hedge(2500)[0], 'g-')
+    plt.plot(a.tsteps, a.call(1000), 'r-')
+    plt.plot(a.tsteps, a.hedge(1000)[0]*max(a.stock), 'g-')
     plt.show()
