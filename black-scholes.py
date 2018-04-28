@@ -22,7 +22,7 @@ class BlackScholes:
             norm.cdf((np.log(self.stock / k) + (self.r + self.v**2 / 2)
                       * (self.T - t)) / (self.v * np.sqrt(self.T - t)))
         p2 = -k * np.exp(-self.r * (self.T - t)) * norm.cdf((np.log(self.stock / k) +
-                                                             (self.r - self.v**2 / 2) * (self.T-t)) / (self.v * np.sqrt(self.T - t)))
+                                                             (self.r - self.v**2 / 2) * (self.T - t)) / (self.v * np.sqrt(self.T - t)))
         return p1 + p2
 
     def call(self, k):
@@ -38,7 +38,17 @@ class BlackScholes:
 
 if __name__ == "__main__":
     a = BlackScholes(0.178, 0.087, 0.05, 30, 100, 100)
-    plt.plot(a.tsteps, a.stock, 'b-')
-    plt.plot(a.tsteps, a.call(1000), 'r-')
-    plt.plot(a.tsteps, a.hedge(1000)[0]*max(a.stock), 'g-')
+    fig = plt.figure()
+    assets = plt.subplot2grid((2, 2), (0, 0), colspan=2)
+
+    assets.plot(a.tsteps, a.stock, 'b-')
+    assets.plot(a.tsteps, a.call(1000), 'r-')
+
+    portfolio = plt.subplot2grid((2, 2), (1, 0), colspan=2)
+    
+    portfolio.plot(a.tsteps, a.hedge(1000)[0], 'b-')
+    
+    pf2 = portfolio.twinx()
+    pf2.plot(a.tsteps, a.hedge(1000)[1], 'g-')
+
     plt.show()
