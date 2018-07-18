@@ -45,9 +45,9 @@ if __name__ == "__main__":
     assets.plot(a.tsteps, a.call(1000), 'r-')
 
     portfolio = plt.subplot2grid((2, 2), (1, 0), colspan=2)
-    
+
     portfolio.plot(a.tsteps, a.hedge(1000)[0], 'b-')
-    
+
     pf2 = portfolio.twinx()
     pf2.plot(a.tsteps, a.hedge(1000)[1], 'g-')
 
