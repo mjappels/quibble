@@ -1,0 +1,2 @@
+def fnfoo():
+    print('hello')
