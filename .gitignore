@@ -1,6 +1,9 @@
-.DS_Store
-.vscode/*
 **/__pycache__
-.mypy_cache/*
-*.pyo
 *.pyc
+.pytest_cache
+.python-version
+
+.idea
+.vscode
+
+.DS_Store
