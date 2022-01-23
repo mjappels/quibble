@@ -1,9 +1,16 @@
-**/__pycache__
+# python
+**/__pycache__/
 *.pyc
 .pytest_cache
 .python-version
+*.egg-info/
 
-.idea
-.vscode
+# jupyter
+.ipynb_checkpoints/
 
+# ides
+.idea/
+.vscode/
+
+# macos
 .DS_Store
